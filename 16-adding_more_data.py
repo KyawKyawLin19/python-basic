@@ -22,14 +22,16 @@ def login():
         if db[i]["email"] == login_user_email and db[i]["password"] == login_user_password:
             user_found = i
 
-        if user_found != i:
-            print("Login Success")
-            user_profile(login_user_email)
+        if user_found != -1:
+            print("Login Success!")
+            user_profile(user_found)
         else:
             print("Username or Password is incorrect")
-            
-def user_profile(info):
-    print('Welcome:', info)
+
+def user_profile(user_found):
+    print('Welcome:', db[user_found]['u_name'])
+
+    input('Press 1 for logout')
 
 def email_exist(email):
     length = len(db)
@@ -45,11 +47,13 @@ def registration():
         print('Email already exist')
         registration()
     else:
-
+        user_name = input('Enter your name')
         user_password = input('Enter your password')
+        user_phone = int(input("Enter your phone:"))
+        user_age = int(input("Enter your age:"))
 
         id = len(db)
-        to_insert = {id:{"email" : user_email, "password" : user_password}}
+        to_insert = {id: {"email": user_email, "u_name" : user_name, "password": user_password, "phone:" : user_phone, "age" : user_age }}
         db.update(to_insert)
 
 if __name__ == '__main__':

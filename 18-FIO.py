@@ -2,7 +2,8 @@ datas = ["a", "b", "c"]
 
 some_text = "hello world"
 
-with open("sample.txt", "a") as file:
+with open('sample.txt', 'w') as file:
     for data in datas:
-        file.writelines(data)
+        file.write(data)
 
+    file.write('\n')
