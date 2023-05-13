@@ -1,0 +1,5 @@
+Name is a 
+Email is a 
+Password is a 
+Phone is 1 
+Age is 1 
